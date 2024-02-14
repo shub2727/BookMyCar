@@ -1,0 +1,293 @@
+>>> Registration Page
+
+POST = /register
+
+Request Payload =
+{"fname":"Amit","lname":"Patil","dob":"1995-10-12","email":"amit@gmail.com","password":"123456"}
+
+Response =
+{"result":{"fname":"Amit","lname":"Patil","dob":"1995-10-12","email":"amit123@gmail.com","_id":"644e4e6adc82cf14db593dfc","__v":0},
+"auth":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.GZjIiwiX192IjowfSwiaWF0IjoxNjgyODUzNDgyfQ.N8qNQNzOBkyLxojDhVvx4fUpH4A14H-s94-Gv5VM6Mg"}
+
+Case 1 - false = If any validation issue
+
+Case 2 - JSON Response
+
+====================================================================
+
+>>> Login Page
+
+POST = /login
+
+Request Payload =
+{"email":"harsh@gmail.com","password":"123456"}
+
+Response =
+{"user":{"_id":"641756aab2a97510493aadfa","fname":"Harsh","lname":"Pawar","dob":"1996-12-01","email":"harsh@gmail.com","__v":0},
+"auth":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.IiwiX192IjowfSwiaWF0IjoxNjgyODU3NTgwfQ.b4wayYIDhG_qTYRiVAqawT6GTAediC3XU8PrWfejXlQ"}
+
+Case 1 - false = If wrong password
+
+Case 2 - JSON Response
+
+========================================================================
+
+>>> Home Page
+
+GET = /cars
+
+Response =
+
+[
+  {rental_carrental_car
+    "_id": "64176646694aa56467e78cf0",
+    "carCompany": "Maruti Suzuki",
+    "carColor": "Pearl White",
+    "carModel": "SWIFT",
+    "carType": "Commercial",
+    "carImg": "https://stimg.cardekho.com/images/car-images/930x620/Maruti/Swift/7820/1614160452458/226_Pearl-Arctic-White_d1d1d1.jpg",
+    "car360": "https://stimg.cardekho.com/images/feelthecar360view/Interior/Maruti/Maruti-Swift/Interior.html?hotSpotNonApp=yes",
+    "carOwner": "Zoom Travels",
+    "numPlate": "MH 01 BS 4658 ",
+    "regDate": "10/05/2020",
+    "insurance": "Third Party & Zero Depreciation",
+    "insuranceValidity": "14/09/2023",
+    "passangerCapacity": 5,
+    "fuelType": "CNG",
+    "feature": "Navigation & Infotainment System",
+    "totalRunning": 34745,
+    "__v": 0,
+    "charge": 1800
+  },
+  {
+    "_id": "641769eb694aa56467e78d08",
+    "carCompany": "Hyundai",
+    "carColor": "Knight Black",
+    "carModel": "CRETA",
+    "carType": "Private",
+    "carImg": "https://stimg.cardekho.com/images/car-images/930x620/Hyundai/Creta/7695/1651738469758/221_knight-black_000000.jpg",
+    "car360": "https://stimg.cardekho.com/images/feelthecar360view/Interior/Hyundai/Hyundai-Creta/1609561813/Interior.html?hotSpotNonApp=yes",
+    "carOwner": "Amit Patil",
+    "numPlate": "MH 12 RC 7420 ",
+    "regDate": "01/12/2022",
+    "insurance": "Third Party & Comprehensive",
+    "insuranceValidity": "30/12/2025",
+    "passangerCapacity": 5,
+    "fuelType": "Petrol",
+    "feature": "BOSE - Infotainment System & G-Map",
+    "totalRunning": 4200,
+    "__v": 0,
+    "charge": 1950
+  }
+]
+
+
+========================================================================
+
+>>> Booking Form Page
+
+GET = /book-car/64176646694aa56467e78cf0
+
+Response =
+{
+  "_id": "64176646694aa56467e78cf0",
+  "carCompany": "Maruti Suzuki",
+  "carColor": "Pearl White",
+  "carModel": "SWIFT",
+  "carType": "Commercial",
+  "carImg": "https://stimg.cardekho.com/images/car-images/930x620/Maruti/Swift/7820/1614160452458/226_Pearl-Arctic-White_d1d1d1.jpg",
+  "car360": "https://stimg.cardekho.com/images/feelthecar360view/Interior/Maruti/Maruti-Swift/Interior.html?hotSpotNonApp=yes",
+  "carOwner": "Zoom Travels",
+  "numPlate": "MH 01 BS 4658 ",
+  "regDate": "10/05/2020",
+  "insurance": "Third Party & Zero Depreciation",
+  "insuranceValidity": "14/09/2023",
+  "passangerCapacity": 5,
+  "fuelType": "CNG",
+  "feature": "Navigation & Infotainment System",
+  "totalRunning": 34745,
+  "__v": 0,
+  "charge": 1800
+}
+
+========================================================================
+
+>>> Booking Form Page
+
+POST = /book-now
+
+Request Payload =
+{
+  "carId": "64176646694aa56467e78cf0",
+  "pickUpLocation": "PUNE",
+  "dropLocation": "GOA",
+  "pickUpTime": "10:00",
+  "pickUpDate": "2023-05-01",
+  "dropDate": "2023-05-06",
+  "passangerCapacity": 4,
+  "members": "4",
+  "days": 5,
+  "numBags": "2"
+}
+
+
+Response =
+{
+  "carCompany": "Maruti Suzuki",
+  "carColor": "Pearl White",
+  "carModel": "SWIFT",
+  "carType": "Commercial",
+  "carOwner": "Zoom Travels",
+  "carImg": "https://stimg.cardekho.com/images/car-images/930x620/Maruti/Swift/7820/1614160452458/226_Pearl-Arctic-White_d1d1d1.jpg",
+  "numPlate": "MH 01 BS 4658 ",
+  "insuranceValidity": "14/09/2023",
+  "fuelType": "CNG",
+  "feature": "Navigation & Infotainment System",
+  "pickUpLocation": "PUNE",
+  "dropLocation": "GOA",
+  "pickUpTime": "10:00",
+  "pickUpDate": "2023-05-01",
+  "dropDate": "2023-05-06",
+  "passangerCapacity": 4,
+  "members": 4,
+  "days": 5,
+  "numBags": 2,
+  "totalPrice": 9000,
+  "_id": "644e6369e761393727dc61b2",
+  "__v": 0
+}
+
+=========================================================================
+
+>>> Driver's Page
+
+GET = /drivers
+
+Response =
+[
+  {
+    "_id": "64194dc3aba178e8f90f0b71",
+    "driverImg": "https://reqres.in/img/faces/8-image.jpg",
+    "driverName": "Sumit Agarwal",
+    "drivingExperiance": "2 Years",
+    "driverMobNo": 8698554297,
+    "availability": "Long Trips",
+    "food": "VEG / NON-VEG",
+    "smoke": "NO",
+    "drink": "YES",
+    "charges": 1200,
+    "__v": 0
+  },
+  {
+    "_id": "64194e41aba178e8f90f0b73",
+    "driverImg": "https://reqres.in/img/faces/9-image.jpg",
+    "driverName": "Pratik Mishra",
+    "drivingExperiance": "5 Years",
+    "driverMobNo": 9975437642,
+    "availability": "Long Trips",
+    "food": "VEG / NON-VEG",
+    "smoke": "NO",
+    "drink": "NO",
+    "charges": 1500,
+    "__v": 0
+  }
+]
+
+========================================================================
+
+>>> Driver's Page
+
+POST = /driver-hotel
+
+Request PayLoad =
+{"hotel":"","room":"","stay":0,"manageParking":"","finalCost":15000}
+
+Response =
+{"hotel":"","room":"","stay":0,"manageParking":"","finalCost":15000,"_id":"644e65f6e761393727dc61b6","__v":0}
+
+==========================================================================
+
+>>> ATM Page 
+
+POST = /finalConfirm
+
+Request PayLoad =
+{
+  "driverID": "64194dc3aba178e8f90f0b71",
+  "cardNo": "5151352132135415"
+}
+
+Response =
+{
+  "email": "harsh@gmail.com",
+  "fname": "Harsh",
+  "lname": "Pawar",
+  "driverImg": "https://reqres.in/img/faces/8-image.jpg",
+  "driverName": "Sumit Agarwal",
+  "driverMobNo": 8698554297,
+  "charges": 1200,
+  "hotel": "",
+  "room": "",
+  "stay": 0,
+  "manageParking": "",
+  "finalCost": 15000,
+  "carCompany": "Maruti Suzuki",
+  "carColor": "Pearl White",
+  "carModel": "SWIFT",
+  "carType": "Commercial",
+  "carImg": "https://stimg.cardekho.com/images/car-images/930x620/Maruti/Swift/7820/1614160452458/226_Pearl-Arctic-White_d1d1d1.jpg",
+  "fuelType": "CNG",
+  "pickUpLocation": "PUNE",
+  "dropLocation": "GOA",
+  "pickUpTime": "10:00",
+  "pickUpDate": "2023-05-01",
+  "dropDate": "2023-05-06",
+  "passangerCapacity": 4,
+  "members": 4,
+  "days": 5,
+  "cardNo": "5151352132135415",
+  "_id": "644e670de761393727dc61b8",
+  "__v": 0
+}
+
+===========================================================================
+
+>>> MY Booking / My Order 
+
+GET = /ticket-details/harsh@gmail.com
+
+Response =
+[
+  {
+    "_id": "641fe0c76466c8dbea7bab2e",
+    "email": "harsh@gmail.com",
+    "fname": "Harsh",
+    "lname": "Pawar",
+    "driverImg": "https://reqres.in/img/faces/9-image.jpg",
+    "driverName": "Pratik Mishra",
+    "driverMobNo": 9975437642,
+    "charges": 1500,
+    "hotel": "J W Marriott",
+    "room": "Delux = ₹ 2400",
+    "stay": 2,
+    "manageParking": "YES",
+    "finalCost": 10260,
+    "carCompany": "Maruti Suzuki",
+    "carColor": "Pearl White",
+    "carModel": "SWIFT",
+    "carType": "Commercial",
+    "carImg": "https://stimg.cardekho.com/images/car-images/930x620/Maruti/Swift/7820/1614160452458/226_Pearl-Arctic-White_d1d1d1.jpg",
+    "fuelType": "CNG",
+    "pickUpLocation": "PUNE",
+    "dropLocation": "GOA",
+    "pickUpTime": "11:45",
+    "pickUpDate": "2023-03-26",
+    "dropDate": "2023-03-28",
+    "passangerCapacity": 4,
+    "members": 4,
+    "days": 2,
+    "cardNo": "6875135485453135",
+    "__v": 0
+  }
+]
+

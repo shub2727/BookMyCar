@@ -1,0 +1,100 @@
+---
+
+version: "3"
+CarRental_Reg:
+  application:
+    image: CarRentalregistrtion
+    network:
+      - sh-network 
+    ports:
+      - "8080:8080"
+    depends_on:
+      - sh-mysql
+
+CarRental_ServiceReg:
+  application:
+    image: ServiceReg
+    networks:
+      - sh-network 
+    ports:
+      - "8761:8080"
+    
+
+
+
+BookMyCar-HotelService:
+  application:
+    image: HotelService
+    networks:
+      - sh-network 
+    ports:
+      - "8084:8080"
+    depends_on:
+      - sh-mysql
+
+
+Car_Rental_Driver:
+  application:
+    image: DriverService
+    networks:
+      - sh-network 
+    ports:
+      - "8083:8080"
+    depends_on:
+      - sh-mysql
+
+
+Car_Rental_CarDetails:
+  application:
+    image: CarDetails
+    networks:
+      - sh-network 
+    ports:
+      - "8081:8080"
+    depends_on:
+      - sh-mysql
+
+
+Car_Rental_Booking:
+  application:
+    image: BookingService
+    networks:
+      - sh-network 
+    ports:
+      - "8082:8080"
+    depends_on:
+      - sh-mysql
+
+
+BookMyCar-AtmService:
+  application:
+    image: AtmService
+    networks:
+      - sh-network 
+    ports:
+      - "8085:8080"
+    depends_on:
+      - sh-mysql
+
+car-rental:
+  application:
+    image: carrentalfrontend
+    networks:
+      - sh-network 
+    ports:
+      - "3000:8080"
+       
+                                    
+
+  sh-mysql: // need to change
+    image: mysql
+    networks:
+      - sh-network 
+
+    environment:
+      - MYSQL_ROOT_PASSWORD: root
+      - MYSQL_DATABASE: bookMyCar   // need to create database
+networks:
+  - sh-network :
+
+---
